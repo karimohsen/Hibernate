@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="pkg.Category" table="category">
+        <id name="id" column="id" type="int">
+          <generator class="increment"/>  
+        </id>
+        <set name="products" table="product_has_category" lazy="true" fetch="select" inverse="true">
+            <key><column name="category_id"/></key>
+            <many-to-many entity-name="pkg.Product">
+                <column name="product_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <property name="value" column="value" type="string"/>
+        <property name="description" column="description" type="string"/>
+        
+    </class>
+</hibernate-mapping>

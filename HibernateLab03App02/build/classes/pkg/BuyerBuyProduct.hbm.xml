@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="pkg.Buyer_Buy_Product" table="buyer_buy_product">
+        <composite-id>
+            <key-many-to-one name="buyer"  class="pkg.Buyer" column="buyer_id"/>
+            <key-many-to-one name="product" class="pkg.Product" column="product_id"/> 
+        </composite-id>
+        <property name="amount" column="amount" type="float"/>
+        <property name="quantity" column="quantity" type="int"/>
+        
+        <property name="paymentDate" column="payment_date" type="date"/>
+    </class>
+</hibernate-mapping>

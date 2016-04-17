@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="pkg.Product" table="product">
+        <id name="id" column="id" type="int">
+          <generator class="increment"/>  
+        </id>
+        <many-to-one name="seller" class="pkg.Seller">
+            <column name="seller_id"/>
+        </many-to-one>
+        <set name="categories" table="product_has_category" lazy="true" fetch="select">
+            <key><column name="product_id"/></key>
+            <many-to-many entity-name="pkg.Category">
+                <column name="category_id" not-null="true">
+            </many-to-many>
+        </set>
+        <property name="name" column="name" type="string"/>
+        <property name="description" column="description" type="string"/>
+        <property name="manufacturing_name" column="manufacturing_name" type="string"/>
+        <property name="manufacturing_date" column="manufacturing_date" type="date"/>
+        <property name="expiration_date" column="expiration_date" type="date"/>
+        <property name="quantity" column="quantity" type="int"/>
+        <property name="offered_date" column="offered_date" type="date"/>
+        <property name="finish_date" column="finish_date" type="date"/>
+    </class>
+</hibernate-mapping>

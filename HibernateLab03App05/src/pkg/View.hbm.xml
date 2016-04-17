@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<hibernate-mapping>
+  <class name="pkg.View" table="buyerview">
+    <id column="id" name="id" type="int">
+      <generator class="increment"/>
+    </id>
+    <property column="email" name="email" type="string"/>
+    <property column="address" name="address" type="string"/>
+    <property column="phone" name="phone" type="string"/>
+    <property column="mobile" name="mobile" type="string"/>
+    <property column="user_name" name="userName" type="string"/>
+    <property column="full_name" name="fullName" type="string"/>
+    <property column="password" name="password" type="string"/>
+    <property column="date_of_birth" name="dateOfBirth" type="date"/>
+    <property column="registration_date" name="registrationDate" type="date"/>
+  </class>
+</hibernate-mapping>
